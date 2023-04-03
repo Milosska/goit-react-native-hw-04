@@ -1,11 +1,15 @@
+import "react-native-gesture-handler";
 import { useCallback } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import RegistrationScreen from "./src/screens/RegistrationScreen/RegistrationScreen";
-import LoginScreen from "./src/screens/LoginScreen/LoginScreen";
+import RegistrationScreen from "./src/screens/Auth/RegistrationScreen/RegistrationScreen";
+import LoginScreen from "./src/screens/Auth/LoginScreen/LoginScreen";
 
 export default function App() {
+  // For fonts instalation
   SplashScreen.preventAutoHideAsync();
 
   const [fontsLoaded] = useFonts({
@@ -26,11 +30,25 @@ export default function App() {
     return null;
   }
 
+  // End of Fonta instalation
+
+  const AuthStack = createStackNavigator();
+
   return (
-    <View style={styles.container}>
-      <RegistrationScreen />
-      {/* <LoginScreen /> */}
-    </View>
+    <NavigationContainer style={styles.container}>
+      <AuthStack.Navigator initialRouteName="Login">
+        <AuthStack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{ headerShown: false }}
+        />
+        <AuthStack.Screen
+          name="Registration"
+          component={RegistrationScreen}
+          options={{ headerShown: false }}
+        />
+      </AuthStack.Navigator>
+    </NavigationContainer>
   );
 }
 
