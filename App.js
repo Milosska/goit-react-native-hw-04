@@ -2,11 +2,10 @@ import "react-native-gesture-handler";
 import { useCallback } from "react";
 import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
-import RegistrationScreen from "./src/screens/Auth/RegistrationScreen/RegistrationScreen";
-import LoginScreen from "./src/screens/Auth/LoginScreen/LoginScreen";
+import Authorization from "./src/screens/Auth/Authorization/Authorization";
+import Home from "./src/screens/main/Home/Home";
 
 export default function App() {
   // For fonts instalation
@@ -32,22 +31,10 @@ export default function App() {
 
   // End of Fonta instalation
 
-  const AuthStack = createStackNavigator();
-
   return (
     <NavigationContainer style={styles.container}>
-      <AuthStack.Navigator initialRouteName="Login">
-        <AuthStack.Screen
-          name="Login"
-          component={LoginScreen}
-          options={{ headerShown: false }}
-        />
-        <AuthStack.Screen
-          name="Registration"
-          component={RegistrationScreen}
-          options={{ headerShown: false }}
-        />
-      </AuthStack.Navigator>
+      {/* <Authorization /> */}
+      <Home />
     </NavigationContainer>
   );
 }
