@@ -1,7 +1,4 @@
-import { StyleSheet, Dimensions } from "react-native";
-
-const deviceWidth = Dimensions.get("screen").width;
-const deviceHeight = Dimensions.get("screen").height;
+import { StyleSheet } from "react-native";
 
 export default styles = StyleSheet.create({
   bgImage: {

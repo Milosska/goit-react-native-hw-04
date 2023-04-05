@@ -1,4 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
 import PostsScreen from "../PostsScreen/PostsScreen";
 import CreatePostsScreen from "../CreatePostsScreen/CreatePostsScreen";
@@ -8,6 +9,7 @@ import styles from "./Home.styles";
 
 const Home = () => {
   const BottomTab = createBottomTabNavigator();
+  const navigation = useNavigation();
 
   return (
     <BottomTab.Navigator>
@@ -34,7 +36,7 @@ const Home = () => {
         }}
       />
       <BottomTab.Screen
-        name="CreatePosts"
+        name="Создать публикацию"
         component={CreatePostsScreen}
         options={{
           headerTitleAlign: "center",
@@ -42,7 +44,11 @@ const Home = () => {
           headerTitleContainerStyle: styles.headerTitle,
           tabBarShowLabel: false,
           tabBarButton: () => (
-            <TouchableOpacity style={styles.plusBarIcon} activeOpacity={0.7}>
+            <TouchableOpacity
+              style={styles.plusBarIcon}
+              activeOpacity={0.7}
+              onPress={() => navigation.navigate("Создать публикацию")}
+            >
               <Feather name="plus" focused="false" size={24} color="#ffffff" />
             </TouchableOpacity>
           ),
