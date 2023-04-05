@@ -28,6 +28,7 @@ const RegistrationScreen = ({ navigation }) => {
 
   const handleBtnPress = () => {
     console.log(userData);
+    navigation.navigate("Home");
   };
 
   return (

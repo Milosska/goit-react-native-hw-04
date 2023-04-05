@@ -5,6 +5,7 @@ import PostsScreen from "../PostsScreen/PostsScreen";
 import CreatePostsScreen from "../CreatePostsScreen/CreatePostsScreen";
 import ProfileScreen from "../ProfileScreen/ProfileScreen";
 import { Feather } from "@expo/vector-icons";
+import { LogOutIcon } from "../../../components/LogOutIcon/LogOutIcon";
 import styles from "./Home.styles";
 
 const Home = () => {
@@ -19,12 +20,7 @@ const Home = () => {
         options={{
           headerTitleAlign: "center",
           headerRight: () => (
-            <Feather
-              name="log-out"
-              size={24}
-              color="#BDBDBD"
-              style={styles.logOut}
-            />
+            <LogOutIcon customStyle={{ paddingHorizontal: 10, bottom: 11 }} />
           ),
           headerStyle: styles.header,
           headerTitleContainerStyle: styles.headerTitle,

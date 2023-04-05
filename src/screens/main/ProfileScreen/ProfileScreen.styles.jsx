@@ -24,6 +24,12 @@ export default styles = StyleSheet.create({
     borderTopRightRadius: 25,
     backgroundColor: "#ffffff",
   },
+  logOut: {
+    position: "absolute",
+    top: 22,
+    right: 16,
+    padding: 0,
+  },
   pageHeader: {
     alignSelf: "center",
     marginTop: 92,
@@ -31,10 +37,5 @@ export default styles = StyleSheet.create({
     fontFamily: "Roboto-Medium",
     fontSize: 30,
     lineHeight: 35,
-  },
-  logOut: {
-    position: "absolute",
-    top: 22,
-    right: 16,
   },
 });

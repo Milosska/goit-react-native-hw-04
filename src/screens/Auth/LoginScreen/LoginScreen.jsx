@@ -19,6 +19,7 @@ const LoginScreen = ({ navigation }) => {
 
   const handleBtnPress = () => {
     console.log(userData);
+    navigation.navigate("Home");
   };
 
   return (
@@ -61,7 +62,9 @@ const LoginScreen = ({ navigation }) => {
           </View>
           <TouchableOpacity
             activeOpacity={0.7}
-            onPress={() => navigation.navigate("Registration")}
+            onPress={() => {
+              navigation.navigate("Registration");
+            }}
           >
             <Text style={styles.linkText}>
               Нет аккаунта? Зарегистрироваться

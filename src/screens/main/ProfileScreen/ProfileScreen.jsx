@@ -3,11 +3,17 @@ import { Feather } from "@expo/vector-icons";
 import { useOrientation } from "../../../hooks/useOrientation";
 import { indicateBgImage } from "../../../helpers/indicateBgImage/indicateBgImage";
 import { ImagePickerElem } from "../../../components/ImagePicker/ImagePicker";
+import { LogOutIcon } from "../../../components/LogOutIcon/LogOutIcon";
 import styles from "./ProfileScreen.styles";
 
 const Profile = () => {
   const bgImage = indicateBgImage();
   let orientation = useOrientation();
+
+  const handleLogOut = () => {
+    navigation.navigate("Authorization");
+  };
+
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -28,12 +34,7 @@ const Profile = () => {
             }}
           >
             <ImagePickerElem />
-            <Feather
-              name="log-out"
-              size={24}
-              color="#BDBDBD"
-              style={styles.logOut}
-            />
+            <LogOutIcon customStyle={styles.logOut} />
             <Text style={styles.pageHeader}>Username</Text>
           </View>
         </ScrollView>
